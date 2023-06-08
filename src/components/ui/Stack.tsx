@@ -1,15 +1,45 @@
-import Image from "next/image";
+import {
+  SiTailwindcss,
+  SiFigma,
+  SiNextdotjs,
+  SiReact,
+  SiJavascript,
+  SiTypescript,
+  SiGit,
+  SiVuedotjs,
+  SiNodedotjs,
+} from "react-icons/si";
 
-type StackProps = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-};
-export default function Stack({ src, alt, width, height }: StackProps) {
+export default function Stack() {
   return (
-    <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-      <Image src={src} alt={alt} width={width} height={height} />
+    <div className="flex gap-4 justify-center">
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiJavascript className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiTypescript className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiNodedotjs className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiFigma className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiNextdotjs className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiReact className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiVuedotjs className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiGit className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiTailwindcss className="dark:text-gray-800" />
+      </div>
     </div>
   );
 }

@@ -1,15 +1,5 @@
 import Image from "next/image";
-import {
-  SiTailwindcss,
-  SiFigma,
-  SiNextdotjs,
-  SiReact,
-  SiJavascript,
-  SiTypescript,
-  SiGit,
-  SiVuedotjs,
-  SiNodedotjs,
-} from "react-icons/si";
+import Stack from "@/components/ui/Stack";
 
 export default function Services() {
   return (
@@ -36,35 +26,7 @@ export default function Services() {
               <h2 className="text-base mb-4 text-gray-500 dark:text-gray-50 font-normal text-center md:text-center xl:text-left">
                 Technologies we use
               </h2>
-              <div className="flex gap-4 justify-center">
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiJavascript className="dark:text-gray-800" />
-                </div>
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiTypescript className="dark:text-gray-800" />
-                </div>
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiNodedotjs className="dark:text-gray-800" />
-                </div>
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiFigma className="dark:text-gray-800" />
-                </div>
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiNextdotjs className="dark:text-gray-800" />
-                </div>
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiReact className="dark:text-gray-800" />
-                </div>
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiVuedotjs className="dark:text-gray-800" />
-                </div>
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiGit className="dark:text-gray-800" />
-                </div>
-                <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-                  <SiTailwindcss className="dark:text-gray-800" />
-                </div>
-              </div>
+              <Stack />
             </div>
           </div>
         </div>
