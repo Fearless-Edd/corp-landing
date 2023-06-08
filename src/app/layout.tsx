@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/ui/navbar/Navbar";
+import Providers from "@/app/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="w-full h-auto bg-gray-50 dark:bg-gray-900">
+      <body className="bg-gray-50 dark:bg-gray-900">
+        <Providers>
           <Navbar />
           <div className="max-w-screen-xl mx-auto">{children}</div>
-        </div>
+        </Providers>
       </body>
     </html>
   );
