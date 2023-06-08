@@ -5,14 +5,9 @@ import Link from "next/link";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
-
-type NavbarProps = {
-  active: {};
-};
+import DarkModeButton from "@/components/ui/buttons/DarkModeButton";
 
 export default function Navbar() {
-  const pathname = usePathname();
   const navItems = [
     { link: "home" },
     { link: "about" },
@@ -66,6 +61,7 @@ export default function Navbar() {
               {item.link}
             </Link>
           ))}
+          <DarkModeButton />
           <Link
             href="#"
             className="bg-blue-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 px-3 py-1 font-light text-sm rounded dark:hover:bg-gray-100 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-10 duration-300"
