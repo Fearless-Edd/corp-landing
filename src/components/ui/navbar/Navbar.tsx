@@ -5,19 +5,25 @@ import Link from "next/link";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+
+type NavbarProps = {
+  active: {};
+};
 
 export default function Navbar() {
+  const pathname = usePathname();
   const navItems = [
-    { link: "Home", href: "#" },
-    { link: "About", href: "#" },
-    { link: "Services", href: "#" },
-    { link: "Projects", href: "#" },
-    { link: "Blog", href: "#" },
+    { link: "home" },
+    { link: "about" },
+    { link: "services" },
+    { link: "projects" },
+    { link: "blog" },
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-sm">
-      <nav className="flex max-w-full items-center justify-between p-4 lg:px-4">
+    <>
+      <nav className="flex w-full items-center justify-between p-4 lg:px-4 fixed z-10 bg-white dark:bg-gray-800 shadow-sm backdrop-blur-lg">
         <div className="flex lg:flex-1">
           <Link href="#" className="flex gap-2 items-center">
             <span className="sr-only">Company Logo</span>
@@ -54,8 +60,8 @@ export default function Navbar() {
           {navItems.map((item) => (
             <Link
               key={item.link}
-              href={item.href}
-              className="dark:text-gray-50 hover:text-gray-900 dark:hover:text-gray-50 dark:hover:border-b-gray-50 hover:border-b hover:border-b-gray-500 transition duration-700 ease-in-out font-light text-sm"
+              href={`#${item.link}`}
+              className="dark:text-gray-50 hover:text-gray-900 dark:hover:text-gray-50 dark:hover:border-b-gray-50 hover:border-b capitalize hover:border-b-gray-500 transition duration-700 ease-in-out font-light text-sm"
             >
               {item.link}
             </Link>
@@ -112,8 +118,8 @@ export default function Navbar() {
                 {navItems.map((item) => (
                   <Link
                     key={item.link}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-50 dark:hover:text-gray-300"
+                    href={`#${item.link}`}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-50 dark:hover:text-gray-300 capitalize"
                   >
                     {item.link}
                   </Link>
@@ -131,6 +137,6 @@ export default function Navbar() {
           </div>
         </Dialog.Panel>
       </Dialog>
-    </header>
+    </>
   );
 }
