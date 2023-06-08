@@ -8,11 +8,11 @@ export default function Hero() {
     >
       <div className="w-full lg:w-1/2 flex flex-col gap-10">
         <div className="flex flex-col gap-5">
-          <h4 className="hidden md:block text-md font-normal text-gray-900 dark:text-gray-50 md:text-center text-center lg:text-left">
+          <h4 className="block text-md font-bold text-gray-500 dark:text-gray-50 md:text-center text-center lg:text-left">
             Welcome to my space, where
           </h4>
-          <h1 className="text-8xl font-bold text-gray-900 dark:text-white md:text-center text-center lg:text-left">
-            I&#39;m a <span className="capitalize text-red-600">LEGEND</span>
+          <h1 className="lg:text-8xl md:text-6xl text-5xl font-bold text-gray-700 dark:text-white md:text-center text-center lg:text-left">
+            I&#39;m a <span className="uppercase text-red-600">legend</span>
           </h1>
         </div>
       </div>
