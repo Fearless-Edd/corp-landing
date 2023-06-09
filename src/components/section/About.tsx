@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="w-full xl:pt-20 xl:pb-24 pb-0 p-4 flex flex-col-reverse gap-10 xl:gap-0 xl:flex-row align-middle items-center border-b-[1px] border-b-black"
+      className="w-full xl:pt-20 xl:pb-24 pb-0 p-4 flex flex-col-reverse gap-10 xl:gap-0 xl:flex-row align-middle items-center border-b-[1px] border-b-black dark:border-b-gray-500"
     >
       <div className="w-full lg:w-1/2 flex justify-center items-center relative dark:hidden">
         <Image

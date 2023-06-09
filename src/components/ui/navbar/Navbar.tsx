@@ -18,21 +18,21 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
-      <nav className="flex w-full items-center justify-between p-4 lg:px-4 fixed z-10 bg-white dark:bg-gray-800 shadow-sm backdrop-blur-lg">
+      <nav className="flex w-full items-center justify-between p-4 lg:px-4 fixed z-10 bg-white dark:bg-slate-900 shadow-sm backdrop-blur-lg">
         <div className="flex lg:flex-1">
-          <Link href="#" className="flex gap-2 items-center">
+          <Link href="/" className="flex gap-2 items-center">
             <span className="sr-only">Company Logo</span>
             <Image
               src="assets/logo/logo_black.svg"
-              width={30}
-              height={30}
+              width={20}
+              height={20}
               alt="logo"
               className="dark:hidden block"
             />
             <Image
               src="assets/logo/logo_white.svg"
-              width={30}
-              height={30}
+              width={20}
+              height={20}
               alt="logo"
               className="hidden dark:block"
             />
@@ -77,21 +77,21 @@ export default function Navbar() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-800">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900">
           <div className="flex items-center justify-between">
             <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <Image
                 src="assets/logo/logo_black.svg"
-                width={30}
-                height={30}
+                width={20}
+                height={20}
                 alt="logo"
                 className="dark:hidden block"
               />
               <Image
                 src="assets/logo/logo_white.svg"
-                width={30}
-                height={30}
+                width={20}
+                height={20}
                 alt="logo"
                 className="hidden dark:block"
               />
@@ -121,6 +121,7 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
+              <div></div>
               <div className="py-6">
                 <Link
                   href="#"
