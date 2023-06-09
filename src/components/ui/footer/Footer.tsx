@@ -4,7 +4,7 @@ import Social from "@/components/ui/icons/Social";
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-gray-900">
+    <footer className="bg-gray-50 dark:bg-gray-900">
       <div className="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row align-middle">
         <Link href="/" className="flex gap-2 items-center">
           <span className="sr-only">Company Logo</span>
