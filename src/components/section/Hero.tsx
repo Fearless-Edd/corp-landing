@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="w-full pt-20 pb-24 p-4 flex flex-col gap-10 xl:gap-0 lg:flex-row align-middle items-center border-b-[1px] border-b-black dark:border-b-gray-500"
+      className="w-full pt-20 pb-24 p-4 flex flex-col gap-10 xl:gap-0 lg:flex-row align-middle items-center border-b-[1px] border-b-gray-300 dark:border-b-gray-500"
     >
       <div className="w-full lg:w-1/2 flex flex-col gap-10">
         <div className="flex flex-col gap-5">

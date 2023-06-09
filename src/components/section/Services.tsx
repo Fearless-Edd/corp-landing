@@ -5,7 +5,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="w-full xl:pt-20 xl:pb-24 pb-0 p-4 flex flex-col gap-10 xl:gap-0 xl:flex-row align-middle items-center border-b-[1px] border-b-black dark:border-b-gray-500"
+      className="w-full xl:pt-20 xl:pb-24 pb-0 p-4 flex flex-col gap-10 xl:gap-0 xl:flex-row align-middle items-center border-b-[1px] border-b-gray-300 dark:border-b-gray-500"
     >
       <div className="w-full md:w-3/4 lg:w-1/2 flex flex-col gap-10 ">
         <div className="flex flex-col gap-5 pt-24 md:pt-24 xl:pt-0">

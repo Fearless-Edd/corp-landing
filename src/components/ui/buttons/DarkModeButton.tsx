@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { BsSun, BsMoonStars } from "react-icons/bs";
 
 export default function DarkModeButton() {
   const [mounted, setMounted] = useState(false);
@@ -20,13 +20,13 @@ export default function DarkModeButton() {
   return (
     <div>
       {currentTheme === "dark" ? (
-        <SunIcon
-          className="h-6 w-6 cursor-pointer text-yellow-500"
+        <BsSun
+          className="cursor-pointer text-yellow-500"
           onClick={() => setTheme("light")}
         />
       ) : (
-        <MoonIcon
-          className="h-6 w-6 cursor-pointer text-gray-800"
+        <BsMoonStars
+          className="cursor-pointer text-gray-800"
           onClick={() => setTheme("dark")}
         />
       )}

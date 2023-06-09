@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Dialog, Popover } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { CgMenuGridR, CgClose } from "react-icons/cg";
 import { useState } from "react";
 import DarkModeButton from "@/components/ui/buttons/DarkModeButton";
+import Social from "@/components/ui/icons/Social";
 
 export default function Navbar() {
   const navItems = [
@@ -45,7 +46,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon
+            <CgMenuGridR
               className="h-6 w-6 dark:text-gray-50"
               aria-hidden="true"
             />
@@ -102,7 +103,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon
+              <CgClose
                 className="h-6 w-6 dark:text-gray-50"
                 aria-hidden="true"
               />
@@ -115,21 +116,25 @@ export default function Navbar() {
                   <Link
                     key={item.link}
                     href={`#${item.link}`}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-50 dark:hover:text-gray-300 capitalize"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-50 dark:hover:bg-gray-700 capitalize"
                   >
                     {item.link}
                   </Link>
                 ))}
               </div>
-              <div></div>
+
               <div className="py-6">
                 <Link
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-700"
                 >
                   Admin
                 </Link>
               </div>
+            </div>
+            <div className="flex gap-2 justify-center items-center align-middle py-6">
+              <Social />
+              <DarkModeButton />
             </div>
           </div>
         </Dialog.Panel>

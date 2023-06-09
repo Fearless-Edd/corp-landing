@@ -1,10 +1,7 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Navbar from "@/components/ui/navbar/Navbar";
 import Providers from "@/app/Providers";
 import Footer from "@/components/ui/footer/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "EDOPAG Solutions",
