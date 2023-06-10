@@ -24,6 +24,7 @@ export default function Logo() {
           width={560}
           height={300}
           alt="hero"
+          priority={true}
         />
       ) : (
         <Image
@@ -31,6 +32,7 @@ export default function Logo() {
           width={560}
           height={300}
           alt="hero"
+          priority={true}
         />
       )}
     </div>
