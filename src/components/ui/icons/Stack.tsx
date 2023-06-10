@@ -23,9 +23,6 @@ export default function Stack() {
         <SiNodedotjs className="dark:text-gray-800" />
       </div>
       <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
-        <SiFigma className="dark:text-gray-800" />
-      </div>
-      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
         <SiNextdotjs className="dark:text-gray-800" />
       </div>
       <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
@@ -36,6 +33,9 @@ export default function Stack() {
       </div>
       <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
         <SiGit className="dark:text-gray-800" />
+      </div>
+      <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
+        <SiFigma className="dark:text-gray-800" />
       </div>
       <div className="stackIcon hover:-translate-y-1 hover:bg-opacity-40">
         <SiTailwindcss className="dark:text-gray-800" />

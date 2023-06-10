@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Dialog, Popover } from "@headlessui/react";
 import { CgMenuGridR, CgClose } from "react-icons/cg";
 import { useState } from "react";
 import DarkModeButton from "@/components/ui/buttons/DarkModeButton";
 import Social from "@/components/ui/icons/Social";
+import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const navItems = [
@@ -23,20 +23,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <Link href="/" className="flex gap-2 items-center">
             <span className="sr-only">Company Logo</span>
-            <Image
-              src="assets/logo/logo_black.svg"
-              width={20}
-              height={20}
-              alt="logo"
-              className="dark:hidden block"
-            />
-            <Image
-              src="assets/logo/logo_white.svg"
-              width={20}
-              height={20}
-              alt="logo"
-              className="hidden dark:block"
-            />
+            <Logo />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -57,7 +44,7 @@ export default function Navbar() {
             <Link
               key={item.link}
               href={`#${item.link}`}
-              className="dark:text-gray-50 hover:text-gray-900 dark:hover:text-gray-50 dark:hover:border-b-gray-50 hover:border-b capitalize hover:border-b-gray-500 transition duration-700 ease-in-out font-light text-sm"
+              className="dark:text-gray-50 hover:text-gray-900 capitalize transition duration-700 ease-in-out font-light text-sm bg-transparent border-b-2 border-white focus:outline-none dark:border-slate-900 dark:hover:border-gray-400 hover:border-gray-400 whitespace-nowrap cursor-base h-10 px-2 py-2"
             >
               {item.link}
             </Link>
@@ -82,20 +69,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <Image
-                src="assets/logo/logo_black.svg"
-                width={20}
-                height={20}
-                alt="logo"
-                className="dark:hidden block"
-              />
-              <Image
-                src="assets/logo/logo_white.svg"
-                width={20}
-                height={20}
-                alt="logo"
-                className="hidden dark:block"
-              />
+              <Logo />
             </Link>
             <button
               type="button"

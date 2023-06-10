@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import Social from "@/components/ui/icons/Social";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   return (
@@ -8,20 +8,7 @@ export default function Footer() {
       <div className="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row align-middle">
         <Link href="/" className="flex gap-2 items-center">
           <span className="sr-only">Company Logo</span>
-          <Image
-            src="assets/logo/logo_black.svg"
-            width={20}
-            height={20}
-            alt="logo"
-            className="dark:hidden block"
-          />
-          <Image
-            src="assets/logo/logo_white.svg"
-            width={20}
-            height={20}
-            alt="logo"
-            className="hidden dark:block"
-          />
+          <Logo />
         </Link>
 
         <p className="text-sm text-gray-600 dark:text-gray-300">
