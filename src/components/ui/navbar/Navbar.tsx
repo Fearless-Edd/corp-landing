@@ -1,25 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+
 import { Dialog, Popover } from "@headlessui/react";
 import { CgMenuGridR, CgClose } from "react-icons/cg";
-import { useState } from "react";
+
 import DarkModeButton from "@/components/ui/buttons/DarkModeButton";
 import Social from "@/components/ui/icons/Social";
 import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const navItems = [
-    { link: "home" },
-    { link: "about" },
-    { link: "services" },
-    { link: "projects" },
-    { link: "blog" },
+    { link: "home", href: "/" },
+    { link: "about", href: "#about" },
+    { link: "services", href: "#services" },
+    { link: "projects", href: "#projects" },
+    { link: "blog", href: "#blog" },
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
-      <nav className="flex w-full items-center justify-between p-4 lg:px-4 fixed z-10 bg-white dark:bg-slate-900 shadow-sm backdrop-blur-lg">
+      <nav className="flex w-full items-center justify-between p-4 lg:px-4 fixed z-10 bg-white dark:bg-slate-900 shadow-sm dark:shadow-md ">
         <div className="flex lg:flex-1">
           <Link href="/" className="flex gap-2 items-center">
             <span className="sr-only">Company Logo</span>
@@ -43,8 +45,9 @@ export default function Navbar() {
           {navItems.map((item) => (
             <Link
               key={item.link}
-              href={`#${item.link}`}
-              className="dark:text-gray-50 hover:text-gray-900 capitalize transition duration-700 ease-in-out font-light text-sm bg-transparent border-b-2 border-white focus:outline-none dark:border-slate-900 dark:hover:border-gray-400 hover:border-gray-400 whitespace-nowrap cursor-base h-10 px-2 py-2"
+              href={item.href}
+              scroll={false}
+              className={`dark:text-gray-50 hover:text-gray-900 capitalize font-light text-sm bg-transparent border-b-2 border-white focus:outline-none dark:border-slate-900 dark:hover:border-gray-400 hover:border-gray-400 whitespace-nowrap cursor-base h-10 px-2 py-2`}
             >
               {item.link}
             </Link>
@@ -89,7 +92,7 @@ export default function Navbar() {
                 {navItems.map((item) => (
                   <Link
                     key={item.link}
-                    href={`#${item.link}`}
+                    href={item.href}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-50 dark:hover:bg-gray-700 capitalize"
                   >
                     {item.link}
