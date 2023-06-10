@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ServicesImage from "@/components/ServicesImage";
 import Stack from "@/components/ui/icons/Stack";
 
 export default function Services() {
@@ -24,28 +24,15 @@ export default function Services() {
           <div className="flex flex-col xl:flex-row gap-6 lg:gap-0 justify-between">
             <div>
               <h2 className="text-base mb-4 text-gray-500 dark:text-gray-50 font-normal text-center md:text-center xl:text-left">
-                Technologies we use
+                Our Tech Stack
               </h2>
               <Stack />
             </div>
           </div>
         </div>
       </div>
-      <div className="w-full lg:w-1/2 flex justify-center items-center relative dark:hidden">
-        <Image
-          src="/assets/3d_character/black_hoodie_2.png"
-          width={560}
-          height={300}
-          alt="hero"
-        />
-      </div>
-      <div className="w-full lg:w-1/2 justify-center items-center relative hidden dark:flex">
-        <Image
-          src="/assets/3d_character/white_hoodie_2.png"
-          width={560}
-          height={300}
-          alt="hero"
-        />
+      <div className="w-full lg:w-1/2 flex justify-center items-center relative">
+        <ServicesImage />
       </div>
     </section>
   );
