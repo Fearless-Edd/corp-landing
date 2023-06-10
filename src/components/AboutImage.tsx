@@ -20,7 +20,7 @@ export default function Logo() {
     <div>
       {currentTheme === "dark" ? (
         <Image
-          src="/assets/3d_character/white_hoodie_3.png"
+          src="/assets/3d_character/dark_mode_2.png"
           width={560}
           height={300}
           alt="hero"
@@ -28,7 +28,7 @@ export default function Logo() {
         />
       ) : (
         <Image
-          src="/assets/3d_character/black_hoodie_3.png"
+          src="/assets/3d_character/light_mode_2.png"
           width={560}
           height={300}
           alt="hero"
