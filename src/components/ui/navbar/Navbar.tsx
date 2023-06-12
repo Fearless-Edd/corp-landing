@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { User } from "@prisma/client";
+import { SafeUser } from "../../../../types";
 
 import { Dialog, Popover } from "@headlessui/react";
 import { CgMenuGridR, CgClose } from "react-icons/cg";
@@ -10,13 +12,17 @@ import DarkModeButton from "@/components/ui/buttons/DarkModeButton";
 import Social from "@/components/ui/icons/Social";
 import Logo from "@/components/Logo";
 
-export default function Navbar() {
+interface UserMenuProps {
+  currentUser: SafeUser | null;
+}
+
+export default function Navbar({ currentUser }: UserMenuProps) {
   const navItems = [
     { link: "home", href: "/" },
     { link: "about", href: "#about" },
     { link: "services", href: "#services" },
     { link: "projects", href: "#projects" },
-    { link: "blog", href: "#blog" },
+    { link: "blog", href: "/blog" },
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
@@ -28,19 +34,7 @@ export default function Navbar() {
             <Logo />
           </Link>
         </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <CgMenuGridR
-              className="h-6 w-6 dark:text-gray-50"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
+
         <Popover.Group className="hidden lg:flex lg:gap-x-6 items-center">
           {navItems.map((item) => (
             <Link
@@ -57,9 +51,22 @@ export default function Navbar() {
             href="#"
             className="bg-blue-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800 px-3 py-1 font-light text-sm rounded dark:hover:bg-gray-100 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-10 duration-300"
           >
-            Admin
+            {currentUser?.name}
           </Link>
         </Popover.Group>
+        <div className="flex gap-4">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 lg:hidden"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <CgMenuGridR
+              className="h-6 w-6 dark:text-gray-50"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
       </nav>
       <Dialog
         as="div"
@@ -105,7 +112,7 @@ export default function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-700"
                 >
-                  Admin
+                  {currentUser?.name}
                 </Link>
               </div>
             </div>
