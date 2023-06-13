@@ -21,7 +21,7 @@ export default function DarkModeButton() {
     <div>
       {currentTheme === "dark" ? (
         <BsSun
-          className="cursor-pointer text-yellow-500"
+          className="cursor-pointer text-gray-300"
           onClick={() => setTheme("light")}
         />
       ) : (
