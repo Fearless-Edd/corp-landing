@@ -1,8 +1,8 @@
 import { Roboto } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/ui/navbar/Navbar";
+import "@/app/globals.css";
 import Providers from "@/app/Providers";
-import Footer from "@/components/ui/footer/Footer";
+import BlogFooter from "@/components/blog/footer/BlogFooter";
+import BlogNavbar from "@/components/blog/navbar/BlogNavbar";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -11,8 +11,8 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "EDOPAG Solutions",
-  description: "portfolio website",
+  title: "EDOPAG | Blog",
+  description: "Blog Site",
 };
 
 export default function RootLayout({
@@ -24,9 +24,9 @@ export default function RootLayout({
     <html lang="en" className={roboto.className}>
       <body className="bg-gray-50 dark:bg-gray-900">
         <Providers>
-          <Navbar />
+          <BlogNavbar />
           <div className="max-w-screen-xl mx-auto">{children}</div>
-          <Footer />
+          <BlogFooter />
         </Providers>
       </body>
     </html>

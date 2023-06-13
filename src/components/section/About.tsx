@@ -21,7 +21,7 @@ export default function About() {
           <p className="container-xl text-md font-normal text-gray-400 text-center md:text-center xl:text-left">
             I am a Professional Biomedical Engineer with an interest in Web
             Development and Data Analytics. I am a self-taught javascript
-            developer and who freelances to create, build, and maintain web
+            developer who freelances to create, build, and maintain web
             applications. I put in all the effort to produce what is right for
             my clients.
           </p>
