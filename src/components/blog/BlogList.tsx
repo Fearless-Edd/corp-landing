@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface BlogListProps {}
 
 const BlogList: React.FC<BlogListProps> = () => {
@@ -12,10 +14,12 @@ const BlogList: React.FC<BlogListProps> = () => {
           />
 
           <div className="absolute bottom-0 flex p-3 bg-white dark:bg-gray-900 ">
-            <img
-              className="object-cover object-center w-10 h-10 rounded-full"
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            <Image
+              className="rounded-full"
+              src="/assets/logo/logo_black.svg"
               alt=""
+              width={10}
+              height={10}
             />
 
             <div className="mx-4">
