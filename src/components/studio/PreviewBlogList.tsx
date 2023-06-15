@@ -9,7 +9,7 @@ type Props = {
 
 export default function PreviewBlogList({ query }: Props) {
   const posts = usePreview(null, query);
-  console.log(posts.length);
+  // console.log(posts.length);
   return (
     <section
       id="blog"
