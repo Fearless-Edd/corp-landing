@@ -5,12 +5,12 @@ import BlogList from "@/components/blog/BlogList.tsx";
 import BlogHeader from "@/components/blog/BlogHeader";
 import PreviewSuspense from "@/components/studio/PreviewSuspense";
 import PreviewBlogList from "@/components/studio/PreviewBlogList";
+import BlogLatest from "@/components/blog/BlogLatest";
 
 const query = groq`
   *[_type=='post'] {
     ...,
-    _id,
-    _createdAt,
+    categories[]->,
     author->,
     "slug": slug.current
   } | order(_createdAt desc)
@@ -35,7 +35,6 @@ export default async function page() {
   }
 
   const posts = await client.fetch<Post[]>(query);
-  // console.log(posts);
   return (
     <>
       <BlogHeader />
@@ -43,9 +42,7 @@ export default async function page() {
         id="blog"
         className="w-full xl:pt-10 xl:pb-24 pb-12 p-4 flex flex-col gap-10 xl:gap-0 align-middle items-center border-b-[1px] border-b-gray-300 dark:border-b-gray-500"
       >
-        {/* <BlogLatest /> */}
-        <h1>{posts.length} results</h1>
-        {/* <List /> */}
+        {/* <BlogLatest posts={posts} /> */}
         <BlogList posts={posts} />
       </section>
     </>

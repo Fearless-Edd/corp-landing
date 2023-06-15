@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
+import { BsBoxArrowUpRight } from "react-icons/bs";
+import ClientSideRoute from "../ClientSideRoute";
+import Link from "next/link";
 
 interface Props {
   posts: Post[];
@@ -9,9 +12,9 @@ export default function BlogList({ posts }: Props) {
   return (
     <>
       <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
-        {posts.map((post) => {
-          return (
-            <div key={post._id} className="group cursor-pointer">
+        {posts.map((post) => (
+          <ClientSideRoute key={post._id} route={`/post/${post.slug}`}>
+            <div className="group cursor-pointer">
               <div className="relative w-full h-64 lg:h-80 group-hover:scale-105 transition-all drop-shadow-xl">
                 <Image
                   className="object-cover object-center rounded-lg"
@@ -19,8 +22,6 @@ export default function BlogList({ posts }: Props) {
                   alt={post.author.name}
                   fill
                 />
-
-                <h1>hello there</h1>
 
                 <div className="absolute bottom-0 flex p-3 bg-white dark:bg-gray-900 ">
                   <Image
@@ -36,7 +37,7 @@ export default function BlogList({ posts }: Props) {
                       {post.author.name}
                     </h1>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {new Date(post._createdAt).toLocaleDateString("en-US", {
+                      {new Date(post._createdAt).toLocaleDateString("en-UK", {
                         day: "numeric",
                         month: "long",
                         year: "numeric",
@@ -52,21 +53,32 @@ export default function BlogList({ posts }: Props) {
 
               <hr className="w-32 my-6 text-blue-500" />
 
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Blanditiis fugit dolorum amet dolores praesentium, alias nam?
-                Tempore
+              <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
+                {post.description}
               </p>
-
-              <a
-                href="#"
-                className="inline-block mt-4 text-blue-500 underline hover:text-blue-400"
-              >
-                Read more
-              </a>
+              <div className="flex flex-col gap-4">
+                <div className="align-middle mt-4 text-blue-500 hover:text-blue-400 gap-2">
+                  <div className="flex gap-1">
+                    <BsBoxArrowUpRight className="text-sm" />
+                    <span>Read post</span>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {post.categories.map((category) => {
+                    return (
+                      <div
+                        key={post._id}
+                        className="text-xs inline-flex items-center font-normal leading-sm lowercase py-1  text-gray-500 dark:text-gray-400"
+                      >
+                        #{category.title}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-          );
-        })}
+          </ClientSideRoute>
+        ))}
       </div>
     </>
   );
