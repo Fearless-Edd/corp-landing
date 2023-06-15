@@ -21,11 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html
+      lang="en"
+      className={roboto.className}
+      suppressHydrationWarning={true}
+    >
       <body className="bg-gray-50 dark:bg-gray-900">
         <Providers>
           <Navbar />
-          <div className="mx-auto">{children}</div>
+          <div className="max-w-7xl mx-auto">{children}</div>
           <Footer />
         </Providers>
       </body>
