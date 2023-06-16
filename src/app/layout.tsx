@@ -21,11 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={roboto.className}
-      suppressHydrationWarning={true}
-    >
+    <html lang="en" className={roboto.className}>
       <body className="bg-gray-50 dark:bg-gray-900">
         <Providers>
           <Navbar />

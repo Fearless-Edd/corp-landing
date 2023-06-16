@@ -1,65 +1,100 @@
 import Image from "next/image";
+import { groq } from "next-sanity";
+import { client } from "@/lib/sanity.client";
+import ClientSideRoute from "@/components/ClientSideRoute";
+import { urlForImage } from "../../../sanity/lib/image";
+import { BsBoxArrowUpRight } from "react-icons/bs";
 
-interface Props {
-  posts: Post[];
-}
+export default async function BlogLatest() {
+  const query = groq`
+    *[_type=='post'][0...1] {
+      ...,
+      categories[]->,
+      author->,
+      "slug": slug.current
+    } | order(_createdAt desc)
+  `;
 
-export default function BlogLatest({ posts }: Props) {
+  const posts = await client.fetch(query);
   return (
-    <div className="">
-      <h1 className="text-2xl text-center font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
-        Latest Blog Post
-      </h1>
+    <>
+      <section
+        id="blog"
+        className="w-full xl:pt-10 xl:pb-24 pb-12 p-4 flex flex-col gap-10 xl:gap-0 align-middle items-center border-b-[1px] border-b-gray-300 dark:border-b-gray-500"
+      >
+        <div className="container px-6 py-10 mx-auto">
+          <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+            Latest Post
+          </h1>
+          {posts.map((post) => (
+            <ClientSideRoute key={post._id} route={`/blog/post/${post.slug}`}>
+              <div className="mt-8 lg:-mx-6 lg:flex lg:items-center">
+                <div className="relative w-full lg:mx-6 lg:w-1/2 h-72 lg:h-96">
+                  <Image
+                    className="object-cover rounded-xl "
+                    src={urlForImage(post.mainImage).url()}
+                    alt={post.author.name}
+                    fill
+                  />
+                </div>
 
-      <div className="mt-8 lg:-mx-6 lg:flex lg:items-center relative w-full lg:w-1/2 rounded-xl h-72 lg:h-96">
-        <Image
-          className="object-cover object-center rounded-lg"
-          src={urlForImage(posts[0].mainImage).url()}
-          alt={posts[0].title}
-          fill
-        />
+                <div className="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">
+                  <div className="flex flex-wrap gap-2">
+                    {post.categories.map((category) => {
+                      return (
+                        <div
+                          key={post._id}
+                          className="text-xs inline-flex items-center font-normal leading-sm lowercase py-1  text-gray-500 dark:text-gray-400"
+                        >
+                          #{category.title}
+                        </div>
+                      );
+                    })}
+                  </div>
 
-        <div className="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">
-          <p className="text-sm text-blue-500 uppercase">category</p>
+                  <h1 className="block mt-4 text-2xl font-semibold text-gray-800 hover:underline dark:text-white">
+                    {post.title}
+                  </h1>
 
-          <a
-            href="#"
-            className="block mt-4 text-2xl font-semibold text-gray-800 hover:underline dark:text-white"
-          >
-            {posts[0].title}
-          </a>
+                  <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
+                    {post.description}
+                  </p>
 
-          <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
-            {posts[0].description}
-          </p>
+                  <div className="inline-block mt-2 text-blue-500 hover:text-blue-400">
+                    <div className="flex gap-1">
+                      <span>Read post</span>
+                      <BsBoxArrowUpRight className="text-sm" />
+                    </div>
+                  </div>
 
-          <a
-            href="#"
-            className="inline-block mt-2 text-blue-500 underline hover:text-blue-400"
-          >
-            Read more
-          </a>
+                  <div className="flex items-center mt-6">
+                    <Image
+                      className="rounded-full"
+                      src={urlForImage(post.author.image).url()}
+                      alt={post.author.name}
+                      width={50}
+                      height={20}
+                    />
 
-          <div className="flex items-center mt-6">
-            <Image
-              className="rounded-full"
-              src={urlForImage(posts[0].author.image).url()}
-              alt={posts[0].title}
-              width={50}
-              height={20}
-            />
-
-            <div className="mx-4">
-              <h1 className="text-sm text-gray-700 dark:text-gray-200">
-                Amelia. Anderson
-              </h1>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Lead Developer
-              </p>
-            </div>
-          </div>
+                    <div className="mx-4">
+                      <h1 className="text-sm text-gray-700 dark:text-gray-200">
+                        {post.author.name}
+                      </h1>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        {new Date(post._createdAt).toLocaleDateString("en-UK", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ClientSideRoute>
+          ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

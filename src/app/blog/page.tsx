@@ -38,13 +38,8 @@ export default async function page() {
   return (
     <>
       <BlogHeader />
-      <section
-        id="blog"
-        className="w-full xl:pt-10 xl:pb-24 pb-12 p-4 flex flex-col gap-10 xl:gap-0 align-middle items-center border-b-[1px] border-b-gray-300 dark:border-b-gray-500"
-      >
-        {/* <BlogLatest posts={posts} /> */}
-        <BlogList posts={posts} />
-      </section>
+      <BlogLatest />
+      <BlogList posts={posts} />
     </>
   );
 }
