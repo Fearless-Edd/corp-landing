@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className="bg-gray-50 dark:bg-gray-900">
         <Providers>
           <Navbar />
-          <LayoutComp className="max-w-7xl mx-auto">{children}</LayoutComp>
+          <LayoutComp>{children}</LayoutComp>
           <Footer />
         </Providers>
       </body>
