@@ -17,7 +17,7 @@ export default async function BlogSideList() {
       {posts.map((post) => (
         <>
           <div key={post._id}>
-            <h3 class="text-blue-500 capitalize">
+            <h3 class="text-gray-500 text-sm capitalize">
               {new Date(post._createdAt).toLocaleDateString("en-UK", {
                 day: "numeric",
                 month: "long",
@@ -27,9 +27,11 @@ export default async function BlogSideList() {
 
             <ClientSideRoute
               route={`/blog/post/${post.slug}`}
-              class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 "
+              class="block mt-2"
             >
-              {post.title}
+              <h1 className="font-medium text-gray-600 hover:underline hover:text-gray-500 dark:text-gray-400">
+                {post.title}
+              </h1>
             </ClientSideRoute>
           </div>
 

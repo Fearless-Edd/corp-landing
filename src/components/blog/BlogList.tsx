@@ -64,7 +64,7 @@ export default function BlogList({ posts }: Props) {
                   {post.description}
                 </p>
                 <div className="flex flex-col gap-4">
-                  <div className="align-middle mt-4 text-blue-500 hover:text-blue-400 gap-2">
+                  <div className="align-middle mt-4 ext-gray-500 hover:text-gray-600 dark:hover:text-gray-400 gap-2">
                     <div className="flex gap-1">
                       <span>Read post</span>
                       <BsBoxArrowUpRight className="text-sm" />

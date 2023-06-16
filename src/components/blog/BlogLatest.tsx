@@ -52,7 +52,7 @@ export default async function BlogLatest() {
                     })}
                   </div>
 
-                  <h1 className="block mt-4 text-2xl font-semibold text-gray-800 hover:underline dark:text-white">
+                  <h1 className="block mt-4 text-2xl font-semibold text-gray-700 hover:underline dark:text-gray-100">
                     {post.title}
                   </h1>
 
@@ -60,7 +60,7 @@ export default async function BlogLatest() {
                     {post.description}
                   </p>
 
-                  <div className="inline-block mt-2 text-blue-500 hover:text-blue-400">
+                  <div className="inline-block mt-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-400">
                     <div className="flex gap-1">
                       <span>Read post</span>
                       <BsBoxArrowUpRight className="text-sm" />

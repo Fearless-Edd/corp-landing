@@ -21,7 +21,7 @@ export default function Logo() {
       {currentTheme === "dark" ? (
         <Image
           src="assets/logo/logo_white.svg"
-          width={20}
+          width={24}
           height={20}
           alt="logo"
           priority={true}
@@ -29,7 +29,7 @@ export default function Logo() {
       ) : (
         <Image
           src="assets/logo/logo_black.svg"
-          width={20}
+          width={24}
           height={20}
           alt="logo"
           priority={true}
