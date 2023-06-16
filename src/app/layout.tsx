@@ -1,5 +1,5 @@
 import { Roboto } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import Navbar from "@/components/ui/navbar/Navbar";
 import Providers from "@/app/Providers";
 import Footer from "@/components/ui/footer/Footer";
@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className="bg-gray-50 dark:bg-gray-900">
         <Providers>
           <Navbar />
-          <div className="max-w-screen-xl mx-auto">{children}</div>
+          <div className="max-w-7xl mx-auto">{children}</div>
           <Footer />
         </Providers>
       </body>
