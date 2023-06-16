@@ -20,16 +20,16 @@ export default function Logo() {
     <div>
       {currentTheme === "dark" ? (
         <Image
-          src="assets/logo/logo_white.svg"
-          width={24}
+          src="assets/logo/blog_logo_white.svg"
+          width={50}
           height={20}
           alt="logo"
           priority={true}
         />
       ) : (
         <Image
-          src="assets/logo/logo_black.svg"
-          width={24}
+          src="assets/logo/blog_logo_black.svg"
+          width={50}
           height={20}
           alt="logo"
           priority={true}
